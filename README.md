@@ -33,3 +33,23 @@ When a new chord is sent to mull via MIDI, it changes the Linnstrument lights as
 | Note in current chord     | ORANGE             | BLACK                  |
 | Note not in current chord | ORANGE             | BLACK                  |
 
+### To update colors on the Linnstrument's pads
+
+Setting the color of *each pad* requires 3 distinct MIDI CC messages to be sent to the Linnstrument
+- set MIDI CC 20 to the column (0-15 or 0-24, depending on the model of Linnstrument)
+- set MIDI CC 21 to the row (0-7)
+- set MIDI CC 22 to the color
+  - 0 to revert to the color configured in Linnstrument settings
+  - 1 to display RED
+  - 2 to display YELLOW
+  - 3 to display GREEN
+  - 4 to display CYAN
+  - 5 to display BLUE
+  - 6 to display MAGENTA
+  - 7 to display BLACK (off)
+  - 8 to display WHITE
+  - 9 to display ORANGE
+  - 10 to display LIME
+  - 11 to display PINK
+
+Note that the values of MIDI CC 20 & 21 are both persistent, so it's possible to e.g. work along a row of lights by setting CC 21 once, then setting CC 20 & 22 for each light in the row.
