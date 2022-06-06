@@ -53,3 +53,31 @@ Setting the color of *each pad* requires 3 distinct MIDI CC messages to be sent 
   - 11 to display PINK
 
 Note that the values of MIDI CC 20 & 21 are both persistent, so it's possible to e.g. work along a row of lights by setting CC 21 once, then setting CC 20 & 22 for each light in the row.
+
+### To map the allocation of MIDI notes assigned to each pad on the Linnstrument
+
+Sending the following sequence of CC messages will return the MIDI note assigned to the bottom left pad:
+- CC 98=43
+- CC 99=2
+- CC 38=7
+- CC 6=2
+
+To get the leftmost pad one row up from that, simply increment the CC 38 value by one:
+- CC 98=43
+- CC 99=2
+- CC 38=8
+- CC 6=2
+
+This can be continued up to the top left pad:
+- CC 98=43
+- CC 99=2
+- CC 38=14
+- CC 6=2
+
+Next, check the "handedness" of the Linnstrument as follows
+- CC 98=43
+- CC 99=2
+- CC 38=90
+- CC 6=1
+
+This will determine if pads go up or down in value as you move to the right
