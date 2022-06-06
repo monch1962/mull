@@ -81,3 +81,14 @@ Next, check the "handedness" of the Linnstrument as follows
 - CC 6=1
 
 This will determine if pads go up or down in value as you move to the right
+
+Each will return a set of 6 CCs:
+- CC 101 (ignore)
+- CC 100 (ignore)
+- CC 99 (ignore)
+- CC 98 (row ID, encoded)
+  - subtract 7 from this value to convert it to a 0-based row ID
+- CC 6 (ignore)
+- CC 38 (MIDI note for leftmost pad)
+
+From this information, plus knowing whether the pads increase or decrease as you move to the right, it should be possible to calculate the MIDI note linked to each pad
